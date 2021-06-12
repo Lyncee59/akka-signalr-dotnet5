@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Folder Include="client\" />
+    <Folder Include="Messages\System\" />
     <Folder Include="Models\" />
   </ItemGroup>
 

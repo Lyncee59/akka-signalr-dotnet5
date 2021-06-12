@@ -1,6 +1,5 @@
 ﻿using Behelit.Core.Interfaces;
 using Microsoft.AspNetCore.SignalR;
-using System;
 
 namespace Behelit.Hubs
 {
@@ -15,8 +14,12 @@ namespace Behelit.Hubs
 
         public void Ping()
         {
-            Console.WriteLine("Ping !!!!!!!!");
             _processor.Ping();
+        }
+
+        public void SendPlayerCommand(string playerName, string command, string data)
+        {
+            _processor.SendPlayerCommand(playerName, command, data);
         }
     }
 }

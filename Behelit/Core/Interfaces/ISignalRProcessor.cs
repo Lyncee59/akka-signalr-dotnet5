@@ -3,6 +3,6 @@
     public interface ISignalRProcessor
     {
         void Ping();
-        void Deliver(string message);
+        void SendPlayerCommand(string playerName, string command, string data);
     }
 }

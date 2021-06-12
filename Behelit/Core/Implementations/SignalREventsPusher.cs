@@ -1,10 +1,7 @@
-﻿using Behelit.Core.Interfaces;
+﻿using Behelit.Core.Enums;
+using Behelit.Core.Interfaces;
 using Behelit.Hubs;
 using Microsoft.AspNetCore.SignalR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Behelit.Core.Implementations
 {
@@ -20,6 +17,11 @@ namespace Behelit.Core.Implementations
         public void Broadcast(string message)
         {
             _hub.Clients.All.SendAsync("broadcast", message);
+        }
+
+        public void Broadcast(PlayerEvent playerEvent, string data)
+        {
+            _hub.Clients.All.SendAsync(nameof(playerEvent), data);
         }
     }
 }

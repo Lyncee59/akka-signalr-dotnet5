@@ -1,7 +1,11 @@
 ﻿using Akka.Actor;
+using Behelit.Core.Enums;
 using Behelit.Core.Interfaces;
+using Behelit.Core.Models;
 using Behelit.Messages;
+using Behelit.Messages.Commands;
 using System;
+using System.Text.Json;
 
 namespace Behelit.Actors
 {
@@ -16,11 +20,13 @@ namespace Behelit.Actors
             _gameManager = gameManager;
             _eventsPusher = eventsPusher;
 
-            Receive<string>((message) => HandleString(message));
-
             Receive<PingMessage>((message) => HandlePingMessage(message));
 
             Receive<PongMessage>((message) => HandlePongMessage(message));
+
+            Receive<PlayerCommandMessage>((message) => HandlePlayerCommandMessage(message));
+
+            Receive<PlayerEventMessage>((message) => HandlePlayerEventMessage(message));
         }
 
         private void HandlePongMessage(PongMessage message)
@@ -33,9 +39,28 @@ namespace Behelit.Actors
             _gameManager.Tell(message);
         }
 
-        private void HandleString(string message)
+        private void HandlePlayerCommandMessage(PlayerCommandMessage message)
         {
-            throw new NotImplementedException();
+            switch (message.Command)
+            {
+                case nameof(PlayerCommand.Join):
+                    _gameManager.Tell(new JoinGameMessage(message.Name, ""));
+                    break;
+                case nameof(PlayerCommand.Leave):
+                    _gameManager.Tell(new LeaveGameMessage(message.Name));
+                    break;
+                case nameof(PlayerCommand.Move):
+                    var playerDirection = JsonSerializer.Deserialize<PlayerDirection>(message.Data);
+                    _gameManager.Tell(new MovePlayerMessage(message.Name, playerDirection.Direction));
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+
+        private void HandlePlayerEventMessage(PlayerEventMessage message)
+        {
+            _eventsPusher.Broadcast(message.PlayerEvent, message.Data);
         }
     }
 }

@@ -4,6 +4,7 @@ using Akka.DependencyInjection;
 using Behelit.Actors;
 using Behelit.Core.Interfaces;
 using Behelit.Messages;
+using Behelit.Messages.Commands;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.IO;
@@ -58,14 +59,13 @@ namespace Behelit.Core
             await CoordinatedShutdown.Get(ActorSystem).Run(CoordinatedShutdown.ClrExitReason.Instance);
         }
 
-        public void Deliver(string message)
+        public void SendPlayerCommand(string playerName, string command, string data)
         {
-            SignalR.Tell(message);
+            SignalR.Tell(new PlayerCommandMessage(playerName, command, data));
         }
 
         public void Ping()
         {
-            Console.WriteLine("Ping !!!");
             SignalR.Tell(new PingMessage());
         }
     }
