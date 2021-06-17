@@ -2,13 +2,15 @@
 {
     public class PlayerStatusMessage
     {
-        public string PlayerName { get; private set; }
-        public int Health { get; private set; }
+        public string Name { get; private set; }
+        public int PositionX { get; private set; }
+        public int PositionY { get; private set; }
 
-        public PlayerStatusMessage(string playerName, int health)
+        public PlayerStatusMessage(string name, int positionX, int positionY)
         {
-            PlayerName = playerName;
-            Health = health;
+            Name = name;
+            PositionX = positionX;
+            PositionY = positionY;
         }
     }
 }

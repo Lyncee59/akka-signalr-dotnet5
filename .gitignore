@@ -2,3 +2,15 @@ Behelit/obj/
 Behelit/bin/
 Behelit.ActorModel/obj/
 Behelit.ActorModel/bin/
+Behelit.Auth/bin/
+Behelit.Auth/obj/
+Behelit.Common/bin/
+Behelit.Common/obj/
+Behelit.Data/obj/
+Behelit.Websockets/bin/
+Behelit.Websockets/obj/
+Behelit.Public/obj/
+Behelit.Public/bin/
+Behelit.Core/obj/
+Behelit.Core/bin/
+Behelit.Data/bin/

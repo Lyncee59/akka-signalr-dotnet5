@@ -3,9 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Behelit", "Behelit\Behelit.csproj", "{56CC72D7-0306-4661-86FE-53890832EC5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Behelit.ActorModel", "Behelit.ActorModel\Behelit.ActorModel.csproj", "{A881E349-ED2C-4384-8982-C996C1BF2192}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behelit.ActorModel", "Behelit.ActorModel\Behelit.ActorModel.csproj", "{A881E349-ED2C-4384-8982-C996C1BF2192}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Behelit.Common", "Behelit.Common\Behelit.Common.csproj", "{8AF13C1C-24D7-497A-A1AE-B370C72FD1BC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Behelit.Core", "Behelit.Core\Behelit.Core.csproj", "{85E82A71-BD1E-43A0-A60B-E7901EF1F508}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Behelit.Data", "Behelit.Data\Behelit.Data.csproj", "{B142799F-2D39-4274-8E45-67A84E072FE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{2C1E9C1D-B4C9-403D-998F-BF072A0364E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Behelit.Auth", "Behelit.Auth\Behelit.Auth.csproj", "{C5C92CC4-4344-4409-A09D-B7D2D32287D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stores", "Stores", "{D72F0443-038E-4315-875F-B608BACB80C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ActorSystems", "ActorSystems", "{43557FA8-D0F1-4AEE-8754-8A4335CA5076}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{48F83E54-9B17-4685-8933-FF4BEBE63A19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behelit.Public", "Behelit.Public\Behelit.Public.csproj", "{B554BD34-06C0-47F0-A5F8-7CE110F064B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Behelit.Websockets", "Behelit.Websockets\Behelit.Websockets.csproj", "{B7B051CA-0E91-44B5-B6A9-0DD66C83FCB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,17 +31,46 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{56CC72D7-0306-4661-86FE-53890832EC5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{56CC72D7-0306-4661-86FE-53890832EC5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56CC72D7-0306-4661-86FE-53890832EC5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{56CC72D7-0306-4661-86FE-53890832EC5F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A881E349-ED2C-4384-8982-C996C1BF2192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A881E349-ED2C-4384-8982-C996C1BF2192}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A881E349-ED2C-4384-8982-C996C1BF2192}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A881E349-ED2C-4384-8982-C996C1BF2192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AF13C1C-24D7-497A-A1AE-B370C72FD1BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AF13C1C-24D7-497A-A1AE-B370C72FD1BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AF13C1C-24D7-497A-A1AE-B370C72FD1BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AF13C1C-24D7-497A-A1AE-B370C72FD1BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85E82A71-BD1E-43A0-A60B-E7901EF1F508}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85E82A71-BD1E-43A0-A60B-E7901EF1F508}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85E82A71-BD1E-43A0-A60B-E7901EF1F508}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85E82A71-BD1E-43A0-A60B-E7901EF1F508}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B142799F-2D39-4274-8E45-67A84E072FE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B142799F-2D39-4274-8E45-67A84E072FE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B142799F-2D39-4274-8E45-67A84E072FE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B142799F-2D39-4274-8E45-67A84E072FE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5C92CC4-4344-4409-A09D-B7D2D32287D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C92CC4-4344-4409-A09D-B7D2D32287D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C92CC4-4344-4409-A09D-B7D2D32287D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C92CC4-4344-4409-A09D-B7D2D32287D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B554BD34-06C0-47F0-A5F8-7CE110F064B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B554BD34-06C0-47F0-A5F8-7CE110F064B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B554BD34-06C0-47F0-A5F8-7CE110F064B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B554BD34-06C0-47F0-A5F8-7CE110F064B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7B051CA-0E91-44B5-B6A9-0DD66C83FCB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7B051CA-0E91-44B5-B6A9-0DD66C83FCB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7B051CA-0E91-44B5-B6A9-0DD66C83FCB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7B051CA-0E91-44B5-B6A9-0DD66C83FCB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A881E349-ED2C-4384-8982-C996C1BF2192} = {43557FA8-D0F1-4AEE-8754-8A4335CA5076}
+		{8AF13C1C-24D7-497A-A1AE-B370C72FD1BC} = {48F83E54-9B17-4685-8933-FF4BEBE63A19}
+		{85E82A71-BD1E-43A0-A60B-E7901EF1F508} = {48F83E54-9B17-4685-8933-FF4BEBE63A19}
+		{B142799F-2D39-4274-8E45-67A84E072FE1} = {D72F0443-038E-4315-875F-B608BACB80C7}
+		{C5C92CC4-4344-4409-A09D-B7D2D32287D8} = {2C1E9C1D-B4C9-403D-998F-BF072A0364E9}
+		{B554BD34-06C0-47F0-A5F8-7CE110F064B8} = {2C1E9C1D-B4C9-403D-998F-BF072A0364E9}
+		{B7B051CA-0E91-44B5-B6A9-0DD66C83FCB6} = {2C1E9C1D-B4C9-403D-998F-BF072A0364E9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E9C31249-71AD-4799-8CD5-BF9F12DF1452}

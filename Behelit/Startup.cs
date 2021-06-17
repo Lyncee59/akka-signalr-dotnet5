@@ -1,8 +1,7 @@
-using Akka.Actor;
+using Behelit.Common.Interfaces;
 using Behelit.Core;
-using Behelit.Core.Implementations;
-using Behelit.Core.Interfaces;
 using Behelit.Hubs;
+using Behelit.Implementations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,7 +37,6 @@ namespace GameServer
 
             services.AddSingleton<IRandomService, RandomService>();
             services.AddSingleton<ISignalREventsPusher, SignalREventsPusher>();
-
             services.AddSingleton<ISignalRProcessor, AkkaService>();
 
             services.AddHostedService<AkkaService>(sp => (AkkaService)sp.GetRequiredService<ISignalRProcessor>());

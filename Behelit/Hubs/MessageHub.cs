@@ -1,4 +1,4 @@
-﻿using Behelit.Core.Interfaces;
+﻿using Behelit.Common.Interfaces;
 using Microsoft.AspNetCore.SignalR;
 
 namespace Behelit.Hubs

@@ -2,11 +2,14 @@
 {
     public class JoinGameMessage
     {
-        public string PlayerName { get; private set; }
+        public string Name { get; private set; }
 
-        public JoinGameMessage(string playerName)
+        public string Color { get; private set; }
+
+        public JoinGameMessage(string name, string color)
         {
-            PlayerName = playerName;
+            Name = name;
+            Color = color;
         }
     }
 }

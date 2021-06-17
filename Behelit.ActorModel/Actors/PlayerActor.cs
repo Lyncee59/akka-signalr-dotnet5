@@ -1,34 +1,51 @@
-﻿using Akka.Actor;
+﻿
+using Akka.Actor;
 using Behelit.ActorModel.Messages;
-using System;
+using Behelit.Common.Enums;
 
 namespace Behelit.ActorModel.Actors
 {
-    public class PlayerActor: ReceiveActor
+    public class PlayerActor : ReceiveActor
     {
-        private readonly string _playerName;
+        public string Name { get; private set; }
+        public int PositionX { get; private set; }
+        public int PositionY { get; private set; }
 
-        private int _health;
-
-        public PlayerActor(string playerName)
+        public PlayerActor(string name)
         {
-            _playerName = playerName;
-            _health = 100;
+            Name = name;
+            PositionX = 0;
+            PositionY = 0;
 
-            Receive<AttackPlayerMessage>(message => HandleAttackPlayerMessage(message));
+            Receive<MovePlayerMessage>((message) => HandleMovePlayerMessage(message));
 
-            Receive<RefreshPlayerStatusMessage>(message => HandleRefreshPlayerStatusMessage(message));
+            Receive<RefreshPlayerStatusMessage>((message) => HandleRefreshPlayerStatusMessage(message));
         }
 
-        private void HandleAttackPlayerMessage(AttackPlayerMessage message)
+        private void HandleMovePlayerMessage(MovePlayerMessage message)
         {
-            _health -= 20;
-            Sender.Tell(new PlayerHealthChangedMessage(_playerName, _health));
+            switch(message.Direction)
+            {
+                case MoveDirection.Up:
+                    PositionY++;
+                    break;
+                case MoveDirection.Down:
+                    PositionY--;
+                    break;
+                case MoveDirection.Left:
+                    PositionX--;
+                    break;
+                case MoveDirection.Right:
+                    PositionY++;
+                    break;
+            }
+
+            Sender.Tell(new PlayerStatusMessage(Name, PositionX, PositionY));
         }
+
         private void HandleRefreshPlayerStatusMessage(RefreshPlayerStatusMessage message)
         {
-            Sender.Tell(new PlayerStatusMessage(_playerName, _health));
+            Sender.Tell(new PlayerStatusMessage(Name, PositionX, PositionY));
         }
-
     }
 }
