@@ -7,6 +7,7 @@ import Game from 'scenes/Game';
 import Home from 'scenes/Home';
 import Login from 'scenes/Login';
 import Register from 'scenes/Register';
+import Test from 'scenes/Test';
 
 const GlobalStyle = createGlobalStyle`
   html, body, #root {
@@ -55,6 +56,9 @@ const PublicLayout = () => (
               <Link to="/game" component={DefaultLink}>
                 Game
               </Link>
+              <Link to="/test" component={DefaultLink}>
+                Test
+              </Link>
             </div>
             <div>
               <Link to="/login" component={DefaultLink}>
@@ -78,6 +82,9 @@ const PublicLayout = () => (
             </Route>
             <Route path="/register">
               <Register />
+            </Route>
+            <Route path="/test">
+              <Test />
             </Route>
             <Route path="/">
               <Home />

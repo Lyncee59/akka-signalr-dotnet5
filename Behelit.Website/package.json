@@ -4,14 +4,16 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "dev": "webpack serve --config webpack.config.js --progress",
+    "dev": "webpack serve --config webpack.config.js --mode=development --progress --hot",
     "lint": "eslint --cache \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint --cache --fix \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
+    "@inlet/react-pixi": "^6.6.2",
     "@microsoft/signalr": "^5.0.7",
     "date-fns": "^2.22.1",
     "isomorphic-fetch": "^3.0.0",
+    "pixi.js": "^6.0.4",
     "ramda": "^0.27.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -34,13 +36,16 @@
     "@types/reflexbox": "^4.0.2",
     "@types/styled-components": "^5.1.10",
     "@types/webpack": "^5.28.0",
+    "@types/webpack-env": "^1.16.1",
     "@typescript-eslint/eslint-plugin": "^4.26.1",
     "@typescript-eslint/parser": "^4.26.1",
+    "copy-webpack-plugin": "^9.0.1",
     "eslint": "^7.28.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "prettier": "^2.3.1",
     "ts-loader": "^9.2.3",
@@ -48,17 +53,5 @@
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   }
 }

@@ -3,7 +3,7 @@ import { Box, Flex } from 'reflexbox';
 import { Input } from 'components/Inputs';
 import Card from 'components/Containers/Card';
 import { PrimaryButton } from 'components/Buttons';
-import { login } from 'services/apiClient';
+import { authenticate } from 'services/apiClient';
 
 const Login = () => {
   const [username, setUsername] = useState<string>('');
@@ -18,7 +18,7 @@ const Login = () => {
   }, []);
 
   const handleClick = () => {
-    login(username, password);
+    authenticate(username, password);
   };
 
   return (

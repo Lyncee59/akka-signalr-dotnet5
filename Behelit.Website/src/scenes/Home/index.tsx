@@ -8,8 +8,7 @@ console.log('config.environment.websocketUrl', config.environment.websocketUrl);
 
 const hubConnection = new signalR.HubConnectionBuilder()
   .withUrl(config.environment.websocketUrl)
-  .withAutomaticReconnect()
-  .configureLogging(signalR.LogLevel.Information)
+  .configureLogging(signalR.LogLevel.Trace)
   .build();
 
 interface Message {

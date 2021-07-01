@@ -1,21 +1,15 @@
-import fetch from 'isomorphic-fetch';
+import { query } from './query';
 
 import config from 'config';
 
-const domain = config.environment.authApiUrl;
-
-const query = async <T>(request: RequestInfo, options?: RequestInit): Promise<T> => {
-  const response = await fetch(request, options);
-
-  return response.json();
-};
+const domain = config.environment.publicApiUrl;
 
 export const get = async <T>(url: string): Promise<T> =>
   query(`${domain}${url}`, {
     method: 'GET'
   });
 
-export const post = async <T>(url: string, data: Record<string, unknown>): Promise<T> =>
+export const post = async <T>(url: string, data?: Record<string, unknown>): Promise<T> =>
   query(`${domain}${url}`, {
     method: 'POST',
     headers: {
@@ -24,7 +18,7 @@ export const post = async <T>(url: string, data: Record<string, unknown>): Promi
     body: JSON.stringify(data)
   });
 
-export const put = async <T>(url: string, data: Record<string, unknown>): Promise<T> =>
+export const put = async <T>(url: string, data?: Record<string, unknown>): Promise<T> =>
   query(`${domain}${url}`, {
     method: 'PUT',
     headers: {

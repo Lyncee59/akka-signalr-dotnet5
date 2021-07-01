@@ -1,13 +1,21 @@
 import * as ReactDOM from 'react-dom';
-import { PublicLayout } from 'layouts';
-import { ThemeProvider } from 'providers';
 import React from 'react';
+import App from 'scenes/App';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <ThemeProvider>
-      <PublicLayout />
-    </ThemeProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const render = () => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+};
+
+if (module.hot) {
+  module.hot.accept('scenes/App', function () {
+    console.log('Accepting the updated printMe module!');
+    render();
+  });
+}
+
+render();
